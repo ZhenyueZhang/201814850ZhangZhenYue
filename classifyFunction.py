@@ -1,10 +1,11 @@
 import heapq
 import cmath
 import numpy as np
-count_right = 0
-count_wrong = 0
-K = 20
+count_right = 0#测试组分类正确的文档个数
+count_wrong = 0#测试组分类错误的文档个数
+K = 20#k近邻的k值
 
+#测试组文档分类所调用的第一个函数
 def classify( train_vec, dic, test_vec, files):
     print('classify....')
     train_space = get_all_key_value(dic, train_vec)
@@ -15,7 +16,8 @@ def classify( train_vec, dic, test_vec, files):
         count_right, count_wrong =  one_test_all_train( each_test_space, train_space,original, files )
         i+=1
     return count_right,count_wrong
-#某一测试组比对所有训练组进行分类
+
+#某一测试组文档对所有训练组文档计算相似度进行分类
 def one_test_all_train( each_test_space, train_space,original, files):
     print('one_test_all_train....')
     global count_right, count_wrong
@@ -26,15 +28,17 @@ def one_test_all_train( each_test_space, train_space,original, files):
         klargest_sim = heapq.nlargest(K, doc_all_sim.items(), key=lambda s: s[0])
         # 计算这个文档属于哪一类
         largest = count_max(klargest_sim)
-        classfied = list(largest[0])[0]
-        print('This doc is classfied to ', classfied, ' ,原属于' + original)
+        if(len(largest)>0):
+            classfied = list(largest[0])[0]
+            print('This doc is classfied to ', classfied, ' ,original belong to ' + original)
         if classfied == original:
             count_right = count_right + 1
         else:
             count_wrong = count_wrong + 1
-
+    print('准确率：', count_right/(count_wrong+count_right))
     return count_right,count_wrong
 
+#计算一个测试文档与所有训练集文档之间的cosin相似度
 def doc_all_sim_cal(doc_space,train_space,files):
     count_group = 0
     all_sim = {}
@@ -60,6 +64,7 @@ def doc_all_sim_cal(doc_space,train_space,files):
                     all_sim[str(np.real(doc_doc_sim))] = files[count_group]
         count_group += 1
     return all_sim
+
 #计算这个文档属于哪一类
 def  count_max(klargest_sim):
     kind_count = {}
@@ -71,7 +76,7 @@ def  count_max(klargest_sim):
     largest = heapq.nlargest(1, kind_count.items(), key=lambda s: s[1])
     return largest
 
-
+#将每个文档的向量空间中大于0的值与该值所对应的词转化为key-value形式
 def get_all_key_value(dic,vec):
     space = []
     count_g = 0
