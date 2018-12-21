@@ -10,4 +10,4 @@
 
 第三个工程：
 ---
-第三次作业为，测试sklearn中K-Means, Affinity Propagation, Mean-Shift, Spectral,Ward hierarchical, Agglomerative,DBSCAN, Gaussian Mixture八种聚类算法在tweets数据集上的聚类效果，并使用NMI(Normalized Mutual Information)作为评价指标。代码见[链接](https://github.com/ZhenyueZhang/201814850ZhangZhenYue/blob/homework3/cluster.py)，实验报告见[链接](https://github.com/ZhenyueZhang/201814850ZhangZhenYue/blob/homework3/%E8%81%9A%E7%B1%BB%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf)。Ipython notebook 运行结果见 [链接](https://github.com/ZhenyueZhang/201814850ZhangZhenYue/blob/homework3/clustering.ipynb)。
+第三次作业为，测试sklearn中K-Means, Affinity Propagation, Mean-Shift, Spectral,Ward hierarchical, Agglomerative,DBSCAN, Gaussian Mixture八种聚类算法在tweets数据集上的聚类效果，并使用NMI(Normalized Mutual Information)作为评价指标。代码见[链接](https://github.com/ZhenyueZhang/201814850ZhangZhenYue/blob/homework3/cluster.py)，实验报告见[链接](https://github.com/ZhenyueZhang/201814850ZhangZhenYue/blob/homework3/%E8%81%9A%E7%B1%BB%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf)，Ipython notebook 运行结果见 [链接](https://github.com/ZhenyueZhang/201814850ZhangZhenYue/blob/homework3/clustering.ipynb)。
